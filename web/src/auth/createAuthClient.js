@@ -3,7 +3,8 @@ export default function createAuthClient(client) {
     type: 'firebase',
     client,
     restoreAuthState: () => client.auth().getRedirectResult(),
-    login: async (email, password) => {
+    login: async ({ email, password }) => {
+      console.log(email, password)
       return client.auth().signInWithEmailAndPassword(email, password)
     },
     logout: () => client.auth().signOut(),
