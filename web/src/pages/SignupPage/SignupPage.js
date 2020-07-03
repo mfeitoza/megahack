@@ -7,32 +7,32 @@ const SignupPage = () => {
       <div>
         <h1>Cadastro</h1>
         <form>
-          <Input name="company" placeholder="Nome fantasia" width="50%">
+          <Input name="company" placeholder="Nome fantasia" width="100%">
             Empresa
           </Input>
           <Spacer y={0.5} />
 
-          <Input name="name" placeholder="Nome e sobrenome" width="50%">
+          <Input name="name" placeholder="Nome e sobrenome" width="100%">
             Nome
           </Input>
           <Spacer y={0.5} />
 
-          <Input name="zipCode" placeholder="Informe seu CEP" width="50%">
+          <Input name="zipCode" placeholder="Informe seu CEP" width="100%">
             CEP
           </Input>
           <Spacer y={0.5} />
 
-          <Input name="address" placeholder="Rua, Avenida, ..." width="50%">
+          <Input name="address" placeholder="Rua, Avenida, ..." width="100%">
             Endereço
           </Input>
           <Spacer y={0.5} />
 
-          <Input name="state" placeholder="Estado" width="50%">
+          <Input name="state" placeholder="Estado" width="100%">
             Estado
           </Input>
           <Spacer y={0.5} />
 
-          <Input name="city" placeholder="Cidade" width="50%">
+          <Input name="city" placeholder="Cidade" width="100%">
             Cidade
           </Input>
           <Spacer y={0.5} />
@@ -43,7 +43,7 @@ const SignupPage = () => {
           </Radio.Group>
           <Spacer y={0.5} />
 
-          <Button type="success" auto>
+          <Button type="success" width="100%">
             Cadastrar
           </Button>
         </form>

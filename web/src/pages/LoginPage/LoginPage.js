@@ -7,15 +7,15 @@ const LoginPage = () => {
       <div>
         <h1>Login Page</h1>
         <form>
-          <Input placeholder="diego@email.com.br" width="50%">
+          <Input placeholder="diego@email.com.br" width="100%">
             Email
           </Input>
           <Spacer y={0.5} />
-          <Input.Password placeholder="••••••••" width="50%">
+          <Input.Password placeholder="••••••••" width="100%">
             Senha
           </Input.Password>
           <Spacer y={0.5} />
-          <Button type="success" auto>
+          <Button type="success" width="100%">
             Entrar
           </Button>
         </form>
