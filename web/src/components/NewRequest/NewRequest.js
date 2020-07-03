@@ -1,6 +1,7 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
 import RequestForm from 'src/components/RequestForm'
+import { Text } from '@zeit-ui/react'
 
 const CREATE_REQUEST_MUTATION = gql`
   mutation CreateRequestMutation($input: CreateRequestInput!) {
@@ -27,13 +28,11 @@ const NewRequest = () => {
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Request</h2>
+    <div>
+      <header>
+        <Text h2>Nova requisição</Text>
       </header>
-      <div className="rw-segment-main">
-        <RequestForm onSave={onSave} loading={loading} error={error} />
-      </div>
+      <RequestForm onSave={onSave} loading={loading} error={error} />
     </div>
   )
 }
