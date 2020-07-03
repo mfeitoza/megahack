@@ -37,3 +37,9 @@ export const Request = {
   reponsesToRequests: (_obj, { root }) =>
     db.request.findOne({ where: { id: root.id } }).reponsesToRequests(),
 }
+
+export const findRequestsByUser = ({ id }) => {
+  return db.request.findMany({
+    where: { createdById: id },
+  })
+}

@@ -15,6 +15,7 @@ export const schema = gql`
   type Query {
     requests: [Request!]!
     request(id: String!): Request!
+    findRequestsByUser(createdById: String!): Request!
   }
 
   input CreateRequestInput {
