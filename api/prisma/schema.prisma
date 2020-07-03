@@ -12,7 +12,7 @@ generator client {
 // migrations for them.
 // TODO: Please remove the following example:
 model User {
-  id      Int    @id @default(cuid())
+  id      String @id @default(cuid())
   email   String @unique
   name    String
   company String
