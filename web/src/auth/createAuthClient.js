@@ -7,6 +7,10 @@ export default function createAuthClient(client) {
       console.log(email, password)
       return client.auth().signInWithEmailAndPassword(email, password)
     },
+    signin: async ({ email, password }) => {
+      console.log(email, password)
+      return client.auth().createUserWithEmailAndPassword(email, password)
+    },
     logout: () => client.auth().signOut(),
     getToken: async () => client.auth().currentUser?.getIdToken() ?? null,
     getUserMetadata: async () => client.auth().currentUser,
