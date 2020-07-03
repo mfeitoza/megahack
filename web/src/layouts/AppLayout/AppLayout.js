@@ -18,24 +18,26 @@ const AppLayout = ({ children }) => {
   console.log(pathname)
   return (
     <>
-      <Page>
-        <Grid.Container gap={2}>
-          <Grid md={12}>
-            <Minimize2 size={32} />
-          </Grid>
-          <Grid md={12} alignContent="center">
-            <User
-              style={{ float: 'right' }}
-              src="https://zeit.co/api/www/avatar/?u=evilrabbit&s=160"
-              name="Diego Suque"
-            />
-          </Grid>
-        </Grid.Container>
+      <Page style={{ paddingTop: '1rem' }}>
+        <Page.Header>
+          <Grid.Container gap={2}>
+            <Grid md={12}>
+              <Minimize2 size={32} />
+            </Grid>
+            <Grid md={12} alignContent="center">
+              <User
+                style={{ float: 'right' }}
+                src="https://zeit.co/api/www/avatar/?u=evilrabbit&s=160"
+                name="Diego Suque"
+              />
+            </Grid>
+          </Grid.Container>
+        </Page.Header>
         <Tabs {...bindings} onChange={onChange}>
           <Tabs.Item label="Feed" value="/home" />
           <Tabs.Item label="Fornecedores" value="/suppliers" />
         </Tabs>
-        <main>{children}</main>
+        <Page.Content>{children}</Page.Content>
       </Page>
     </>
   )
