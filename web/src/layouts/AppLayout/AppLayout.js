@@ -1,6 +1,9 @@
 import { routes, useLocation, navigate } from '@redwoodjs/router'
-import { Page, Grid, User, Tabs, useTabs } from '@zeit-ui/react'
+import { Page, Grid, Tabs, useTabs } from '@zeit-ui/react'
 import Minimize2 from '@zeit-ui/react-icons/minimize2'
+import UserAvatarCell from 'src/components/UserAvatarCell'
+
+import { useAuth } from 'src/auth/useAuth'
 
 const tabsRoute = {
   '/home': routes.home,
@@ -15,7 +18,8 @@ const AppLayout = ({ children }) => {
   const { pathname } = useLocation()
   const { setTab, bindings } = useTabs(pathname)
 
-  console.log(pathname)
+  const { userMetadata } = useAuth()
+  console.log(userMetadata)
   return (
     <>
       <Page style={{ paddingTop: '1rem' }}>
@@ -25,11 +29,7 @@ const AppLayout = ({ children }) => {
               <Minimize2 size={32} />
             </Grid>
             <Grid md={12} alignContent="center">
-              <User
-                style={{ float: 'right' }}
-                src="https://zeit.co/api/www/avatar/?u=evilrabbit&s=160"
-                name="Diego Suque"
-              />
+              <UserAvatarCell email={userMetadata.email} />
             </Grid>
           </Grid.Container>
         </Page.Header>
