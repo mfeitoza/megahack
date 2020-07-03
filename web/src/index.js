@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app'
 import 'firebase/auth'
 
 import AuthProvider from 'src/auth/AuthProvider'
+import { useAuth } from 'src/auth/useAuth'
 import Routes from 'src/Routes'
 
 const firebaseConfig = {
@@ -29,7 +30,7 @@ ReactDOM.render(
   <ZeitProvider>
     <CssBaseline />
     <FatalErrorBoundary page={FatalErrorPage}>
-      <AuthProvider client={firebaseClient} type="firebase">
+      <AuthProvider client={firebaseClient}>
         <RedwoodProvider>
           <Routes />
         </RedwoodProvider>
