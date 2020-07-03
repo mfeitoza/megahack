@@ -5,8 +5,7 @@ import { ZeitProvider, CssBaseline } from '@zeit-ui/react'
 
 import Routes from 'src/Routes'
 
-import './index.css'
-
+import './scaffold.css'
 ReactDOM.render(
   <ZeitProvider>
     <CssBaseline />
