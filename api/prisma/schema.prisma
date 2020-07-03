@@ -20,8 +20,8 @@ model User {
   address  String
   state    String
   city     String
-  Request  Request[]
-  Response Response[]
+  request  Request[]
+  response Response[]
 }
 
 model Category {
