@@ -2,9 +2,9 @@ import { useMutation, useFlash } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 
 const DELETE_TAG_MUTATION = gql`
-  mutation DeleteTagMutation($id: Int!) {
-    deleteTag(id: $id) {
-      id
+  mutation DeleteTagMutation($name: Int!) {
+    deleteTag(name: $name) {
+      name
     }
   }
 `
@@ -39,9 +39,9 @@ const TagsList = ({ tags }) => {
     },
   })
 
-  const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete tag ' + id + '?')) {
-      deleteTag({ variables: { id }, refetchQueries: ['TAGS'] })
+  const onDeleteClick = (name) => {
+    if (confirm('Are you sure you want to delete tag ' + name + '?')) {
+      deleteTag({ variables: { name }, refetchQueries: ['TAGS'] })
     }
   }
 
@@ -50,37 +50,35 @@ const TagsList = ({ tags }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            <th>id</th>
             <th>name</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {tags.map((tag) => (
-            <tr key={tag.id}>
-              <td>{truncate(tag.id)}</td>
+            <tr key={tag.name}>
               <td>{truncate(tag.name)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.tag({ id: tag.id })}
-                    title={'Show tag ' + tag.id + ' detail'}
+                    to={routes.tag({ id: tag.name })}
+                    title={'Show tag ' + tag.name + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editTag({ id: tag.id })}
-                    title={'Edit tag ' + tag.id}
+                    to={routes.editTag({ id: tag.name })}
+                    title={'Edit tag ' + tag.name}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <a
                     href="#"
-                    title={'Delete tag ' + tag.id}
+                    title={'Delete tag ' + tag.name}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(tag.id)}
+                    onClick={() => onDeleteClick(tag.name)}
                   >
                     Delete
                   </a>

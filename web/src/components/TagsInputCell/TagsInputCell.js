@@ -7,7 +7,6 @@ import TagForm from 'src/components/TagForm'
 export const QUERY = gql`
   query TAGS {
     tags {
-      id
       name
     }
   }
@@ -16,7 +15,7 @@ export const QUERY = gql`
 const CREATE_TAG_MUTATION = gql`
   mutation CreateTagMutation($input: CreateTagInput!) {
     createTag(input: $input) {
-      id
+      name
     }
   }
 `
@@ -36,18 +35,7 @@ export const Loading = () => (
   </Select>
 )
 
-export const Empty = () => {
-  return (
-    <div className="rw-text-center">
-      {'No tags yet. '}
-      <Link to={routes.newTag()} className="rw-link">
-        {'Create one?'}
-      </Link>
-    </div>
-  )
-}
-
-export const Success = ({ tags, name, onChange }) => {
+export const Success = ({ tags, name, onChange, value }) => {
   const [showModal, setShowModal] = useState(false)
   const showModalHandler = () => setShowModal(true)
   const closeHandler = (event) => {
@@ -68,7 +56,7 @@ export const Success = ({ tags, name, onChange }) => {
       },
     })
   }
-
+  console.log(value)
   return (
     <>
       <Grid.Container gap={2}>
@@ -79,9 +67,10 @@ export const Success = ({ tags, name, onChange }) => {
             onChange={onChange}
             width="100%"
             multiple
+            value={value}
           >
             {tags.map((tag) => (
-              <Select.Option key={tag.id} value={tag.id}>
+              <Select.Option key={tag.name} value={tag.name}>
                 {tag.name.toLowerCase()}
               </Select.Option>
             ))}

@@ -1,11 +1,9 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import Tags from 'src/components/Tags'
 
 export const QUERY = gql`
   query TAGS {
     tags {
-      id
       name
     }
   }

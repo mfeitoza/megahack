@@ -5,7 +5,14 @@ import TagsInputCell from 'src/components/TagsInputCell'
 import { useEffect } from 'react'
 
 const RequestForm = (props) => {
-  const { register, handleSubmit, control, setValue, watch, errors } = useForm()
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    getValues,
+    errors,
+  } = useForm()
 
   const handleTagsInput = (value) => {
     setValue('tags', value)
@@ -16,14 +23,12 @@ const RequestForm = (props) => {
   }, [register])
 
   const onSubmit = (data) => {
-    console.log(errors)
+    console.log(data)
     //props.onSave(data, props?.request?.id)
   }
 
-  console.log(errors)
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} error={props.error}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Input
         name="title"
         defaultValue={props.request?.title}
@@ -53,6 +58,7 @@ const RequestForm = (props) => {
         defaultValue={props.request?.tags}
         width="100%"
         onChange={handleTagsInput}
+        value={getValues('tags')}
       />
       <Spacer y={0.5} />
 

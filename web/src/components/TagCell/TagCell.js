@@ -1,9 +1,8 @@
 import Tag from 'src/components/Tag'
 
 export const QUERY = gql`
-  query FIND_TAG_BY_ID($id: Int!) {
-    tag: tag(id: $id) {
-      id
+  query FIND_TAG_BY_name($name: Int!) {
+    tag: tag(name: $name) {
       name
     }
   }
