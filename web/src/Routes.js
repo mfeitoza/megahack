@@ -21,6 +21,7 @@ const Routes = () => {
       <Route path="/login" page={LoginPage} name="login" />
       <Private unauthenticated="login">
         <Route path="/home" page={HomePage} name="home" />
+        <Route path="/suppliers" page={SuppliersPage} name="suppliers" />
         <Route path="/requests/new" page={NewRequestPage} name="newRequest" />
         <Route
           path="/requests/{id}/edit"

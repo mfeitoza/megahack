@@ -35,14 +35,7 @@ export const beforeQuery = (props) => {
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
-  return (
-    <div className="rw-text-center">
-      {'No requests yet. '}
-      <Link to={routes.newRequest()} className="rw-link">
-        {'Create one?'}
-      </Link>
-    </div>
-  )
+  return <div className="rw-text-center">Você não tem requisição aberta</div>
 }
 
 export const Success = ({ companyRequests }) => {

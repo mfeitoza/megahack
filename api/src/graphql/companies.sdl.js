@@ -17,6 +17,7 @@ export const schema = gql`
 
   type Query {
     companies: [Company!]!
+    suppliers: [Company!]!
     companyRequests: [Request!]!
     company(id: String!): Company!
   }

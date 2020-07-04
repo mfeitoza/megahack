@@ -5147,6 +5147,18 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+effector-react@^20.9.0:
+  version "20.9.0"
+  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-20.9.0.tgz#51cc0469321f56107ae75e219cc0280d46f72ae6"
+  integrity sha512-Fh/dGPFDGz8YyCbIeBxmqSlTGHdsTVl7lWSI92Z4PWf9Gac7Zvd7/1gE5a5uhfYSZvo0SjqYfT7fFsz81G4pEA==
+
+effector@^20.17.2:
+  version "20.17.2"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-20.17.2.tgz#825987cdbf91b062e01074b5b47bcca9720efe94"
+  integrity sha512-Msbq6xem+Dal9BzReq6qqSKcb3ey4gVeJzG9S3wRVSPmErs8886STqGFGz9BbxrBR7Xy52cEMfI7KsBmmT1K7A==
+  dependencies:
+    symbol-observable "^1.2.0"
+
 ejs@^2.6.1:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
@@ -11422,7 +11434,7 @@ svg-react-loader@^0.4.6:
     traverse "0.6.6"
     xml2js "0.4.17"
 
-symbol-observable@^1.0.2, symbol-observable@^1.0.4, symbol-observable@^1.1.0:
+symbol-observable@^1.0.2, symbol-observable@^1.0.4, symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==

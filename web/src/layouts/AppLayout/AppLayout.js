@@ -7,7 +7,7 @@ import { useAuth } from 'src/auth/useAuth'
 
 const tabsRoute = {
   '/home': routes.home,
-  '/suppliers': routes.login,
+  '/suppliers': routes.suppliers,
 }
 
 const onChange = (tab) => {

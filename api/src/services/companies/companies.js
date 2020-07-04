@@ -57,3 +57,9 @@ export const companyRequests = (_args, { context: { currentUser } }) => {
     })
     .request()
 }
+
+export const suppliers = () => {
+  return db.company.findMany({
+    where: { isSupplier: true },
+  })
+}
