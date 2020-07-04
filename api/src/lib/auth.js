@@ -10,7 +10,9 @@ admin.initializeApp({
   databaseURL: 'https://megahack-84970.firebaseio.com',
 })
 
-export const getCurrentUser = async ({ token }) => {
+export const getCurrentUser = async (auth) => {
+  const token = typeof auth === 'string' ? auth : auth.token
+  console.log(auth)
   if (!token) {
     throw new AuthenticationError('Uh, oh')
   }
