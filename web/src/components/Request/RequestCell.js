@@ -1,9 +1,8 @@
-import { Link, routes } from '@redwoodjs/router'
 import Request from 'src/components/Request'
 
 export const QUERY = gql`
-  query REQUESTS {
-    requests {
+  query FIND_REQUEST_BY_ID($id: String!) {
+    request: request(id: $id) {
       id
       title
       description
@@ -27,29 +26,10 @@ export const QUERY = gql`
   }
 `
 
-export const beforeQuery = (props) => {
-  return { variables: props, fetchPolicy: 'cache-and-network' }
-}
-
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => {
-  return (
-    <div className="rw-text-center">
-      {'No requests yet. '}
-      <Link to={routes.newRequest()} className="rw-link">
-        {'Create one?'}
-      </Link>
-    </div>
-  )
-}
+export const Empty = () => <div>Request not found</div>
 
-export const Success = ({ requests }) => {
-  return (
-    <>
-      {requests.map((request) => (
-        <Request key={request.id} request={request} />
-      ))}
-    </>
-  )
+export const Success = ({ request }) => {
+  return <Request request={request} />
 }
