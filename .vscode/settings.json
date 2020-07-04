@@ -7,5 +7,15 @@
   },
   "[prisma]": {
     "editor.formatOnSave": true
-  }
+  },
+  "sqltools.connections": [
+    {
+      "database": "${workspaceFolder:megahack}/api/prisma/dev.db",
+      "driver": "SQLite",
+      "group": "default",
+      "name": "megahack",
+      "previewLimit": 50
+    }
+  ],
+  "sqltools.useNodeRuntime": true
 }
