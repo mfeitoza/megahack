@@ -26,10 +26,7 @@ const Routes = () => {
         />
         <Route path="/requests/{id}" page={RequestPage} name="request" />
         <Route path="/requests" page={RequestsPage} name="requests" />
-        <Route path="/users/new" page={NewUserPage} name="newUser" />
         <Route path="/users/{id}/edit" page={EditUserPage} name="editUser" />
-        <Route path="/users/{id}" page={UserPage} name="user" />
-        <Route path="/users" page={UsersPage} name="users" />
         <Route path="/tags/new" page={NewTagPage} name="newTag" />
         <Route path="/tags/{id:Int}/edit" page={EditTagPage} name="editTag" />
         <Route path="/tags/{id:Int}" page={TagPage} name="tag" />
