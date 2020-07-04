@@ -25,7 +25,6 @@ export const Loading = () => <div>Loading...</div>
 export const Empty = () => <div>User not found</div>
 
 export const Success = ({ user }) => {
-  console.log(user)
   if (user.company === null)
     setTimeout(() => navigate(routes.newCompany({ id: user.id })), 50)
   return (

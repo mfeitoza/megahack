@@ -19,7 +19,6 @@ const AppLayout = ({ children }) => {
   const { setTab, bindings } = useTabs(pathname)
 
   const { userMetadata, logOut } = useAuth()
-  console.log(userMetadata)
   return (
     <>
       <Page style={{ paddingTop: '1rem' }}>
