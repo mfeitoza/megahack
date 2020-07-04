@@ -4,9 +4,9 @@ export const tags = () => {
   return db.tag.findMany()
 }
 
-export const tag = ({ id }) => {
+export const tag = ({ name }) => {
   return db.tag.findOne({
-    where: { id },
+    where: { name },
   })
 }
 
@@ -16,20 +16,20 @@ export const createTag = ({ input }) => {
   })
 }
 
-export const updateTag = ({ id, input }) => {
+export const updateTag = ({ name, input }) => {
   return db.tag.update({
     data: input,
-    where: { id },
+    where: { name },
   })
 }
 
-export const deleteTag = ({ id }) => {
+export const deleteTag = ({ name }) => {
   return db.tag.delete({
-    where: { id },
+    where: { name },
   })
 }
 
 export const Tag = {
   requests: (_obj, { root }) =>
-    db.tag.findOne({ where: { id: root.id } }).requests(),
+    db.tag.findOne({ where: { name: root.name } }).requests(),
 }

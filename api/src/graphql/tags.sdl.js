@@ -2,13 +2,12 @@ import gql from 'graphql-tag'
 
 export const schema = gql`
   type Tag {
-    id: Int!
     name: String!
   }
 
   type Query {
     tags: [Tag!]!
-    tag(id: Int!): Tag!
+    tag(name: String!): Tag!
   }
 
   input CreateTagInput {
@@ -21,7 +20,7 @@ export const schema = gql`
 
   type Mutation {
     createTag(input: CreateTagInput!): Tag!
-    updateTag(id: Int!, input: UpdateTagInput!): Tag!
-    deleteTag(id: Int!): Tag!
+    updateTag(name: String!, input: UpdateTagInput!): Tag!
+    deleteTag(name: String!): Tag!
   }
 `

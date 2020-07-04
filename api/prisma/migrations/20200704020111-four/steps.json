@@ -1,0 +1,46 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "Tag",
+      "field": "id"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "name"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "DeleteDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "name"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Request",
+          "field": "tags"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "newValue": "[name]"
+    }
+  ]
+}
