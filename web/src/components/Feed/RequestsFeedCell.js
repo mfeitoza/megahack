@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-import Requests from 'src/components/Requests'
 import Request from 'src/components/Request'
 
 export const QUERY = gql`

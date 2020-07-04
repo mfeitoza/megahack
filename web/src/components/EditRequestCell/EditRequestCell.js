@@ -1,6 +1,7 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
-import RequestForm from 'src/components/RequestForm'
+
+import RequestForm from 'src/components/Request/RequestForm'
 
 export const QUERY = gql`
   query FIND_REQUEST_BY_ID($id: String!) {

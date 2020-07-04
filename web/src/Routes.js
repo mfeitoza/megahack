@@ -28,7 +28,6 @@ const Routes = () => {
           name="editRequest"
         />
         <Route path="/requests/{id}" page={RequestPage} name="request" />
-        <Route path="/requests" page={RequestsPage} name="requests" />
         <Route path="/users/{id}/edit" page={EditUserPage} name="editUser" />
         <Route path="/tags/new" page={NewTagPage} name="newTag" />
         <Route path="/tags/{id:Int}/edit" page={EditTagPage} name="editTag" />

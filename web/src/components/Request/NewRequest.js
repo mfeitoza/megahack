@@ -1,7 +1,8 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
-import RequestForm from 'src/components/RequestForm'
 import { Text } from '@zeit-ui/react'
+
+import RequestForm from './RequestForm.js'
 
 const CREATE_REQUEST_MUTATION = gql`
   mutation CreateRequestMutation($input: CreateRequestInput!) {
