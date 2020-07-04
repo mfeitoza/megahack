@@ -9,6 +9,16 @@ export const QUERY = gql`
       tags {
         name
       }
+      user {
+        id
+        name
+      }
+      company {
+        id
+        company
+        address
+        city
+      }
       createdAt
       companyId
       validUntil
