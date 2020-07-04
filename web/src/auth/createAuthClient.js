@@ -8,8 +8,7 @@ export default function createAuthClient(client) {
       return client.auth().signInWithEmailAndPassword(email, password)
     },
     signin: async ({ email, password }) => {
-      console.log(email, password)
-      return client.auth().createUserWithEmailAndPassword(email, password)
+      return await client.auth().createUserWithEmailAndPassword(email, password)
     },
     logout: () => client.auth().signOut(),
     getToken: async () => client.auth().currentUser?.getIdToken() ?? null,

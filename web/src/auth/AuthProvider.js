@@ -62,6 +62,10 @@ let AuthProvider = (() => {
         await this.rwClient.login(options)
         return this.reauthenticate()
       }
+      this.signIn = async (options) => {
+        await this.rwClient.signin(options)
+        return await this.reauthenticate()
+      }
       this.logOut = async (options) => {
         await this.rwClient.logout(options)
         this.setState({
@@ -87,6 +91,7 @@ let AuthProvider = (() => {
           value={{
             ...this.state,
             logIn: this.logIn,
+            signIn: this.signIn,
             logOut: this.logOut,
             getToken: this.rwClient.getToken,
             getCurrentUser: this.getCurrentUser,
