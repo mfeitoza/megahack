@@ -105,9 +105,16 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "company",
+      "field": "Company",
       "type": "Company",
-      "arity": "Optional"
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "Request",
+      "type": "Request",
+      "arity": "List"
     },
     {
       "tag": "CreateModel",
@@ -194,7 +201,7 @@
     {
       "tag": "CreateField",
       "model": "Company",
-      "field": "user",
+      "field": "User",
       "type": "User",
       "arity": "Required"
     },
@@ -204,7 +211,7 @@
         "path": {
           "tag": "Field",
           "model": "Company",
-          "field": "user"
+          "field": "User"
         },
         "directive": "relation"
       }
@@ -216,7 +223,7 @@
         "path": {
           "tag": "Field",
           "model": "Company",
-          "field": "user"
+          "field": "User"
         },
         "directive": "relation"
       },
@@ -230,7 +237,7 @@
         "path": {
           "tag": "Field",
           "model": "Company",
-          "field": "user"
+          "field": "User"
         },
         "directive": "relation"
       },
@@ -247,14 +254,14 @@
     {
       "tag": "CreateField",
       "model": "Company",
-      "field": "request",
+      "field": "Request",
       "type": "Request",
       "arity": "List"
     },
     {
       "tag": "CreateField",
       "model": "Company",
-      "field": "response",
+      "field": "Response",
       "type": "Response",
       "arity": "List"
     },
@@ -283,7 +290,7 @@
     {
       "tag": "CreateField",
       "model": "Tag",
-      "field": "requests",
+      "field": "Requests",
       "type": "Request",
       "arity": "List"
     },
@@ -293,7 +300,7 @@
         "path": {
           "tag": "Field",
           "model": "Tag",
-          "field": "requests"
+          "field": "Requests"
         },
         "directive": "relation"
       }
@@ -305,7 +312,7 @@
         "path": {
           "tag": "Field",
           "model": "Tag",
-          "field": "requests"
+          "field": "Requests"
         },
         "directive": "relation"
       },
@@ -376,7 +383,7 @@
     {
       "tag": "CreateField",
       "model": "Request",
-      "field": "tags",
+      "field": "Tags",
       "type": "Tag",
       "arity": "List"
     },
@@ -386,7 +393,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "tags"
+          "field": "Tags"
         },
         "directive": "relation"
       }
@@ -398,7 +405,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "tags"
+          "field": "Tags"
         },
         "directive": "relation"
       },
@@ -440,7 +447,7 @@
     {
       "tag": "CreateField",
       "model": "Request",
-      "field": "company",
+      "field": "Company",
       "type": "Company",
       "arity": "Required"
     },
@@ -450,7 +457,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "company"
+          "field": "Company"
         },
         "directive": "relation"
       }
@@ -462,7 +469,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "company"
+          "field": "Company"
         },
         "directive": "relation"
       },
@@ -476,7 +483,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "company"
+          "field": "Company"
         },
         "directive": "relation"
       },
@@ -487,6 +494,59 @@
       "tag": "CreateField",
       "model": "Request",
       "field": "companyId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Request",
+      "field": "user",
+      "type": "User",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Request",
+          "field": "user"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Request",
+          "field": "user"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[userId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Request",
+          "field": "user"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Request",
+      "field": "userId",
       "type": "String",
       "arity": "Required"
     },
@@ -707,7 +767,7 @@
     {
       "tag": "CreateField",
       "model": "ReponsesToRequest",
-      "field": "request",
+      "field": "Request",
       "type": "Request",
       "arity": "Required"
     },
@@ -717,7 +777,7 @@
         "path": {
           "tag": "Field",
           "model": "ReponsesToRequest",
-          "field": "request"
+          "field": "Request"
         },
         "directive": "relation"
       }
@@ -729,7 +789,7 @@
         "path": {
           "tag": "Field",
           "model": "ReponsesToRequest",
-          "field": "request"
+          "field": "Request"
         },
         "directive": "relation"
       },
@@ -743,7 +803,7 @@
         "path": {
           "tag": "Field",
           "model": "ReponsesToRequest",
-          "field": "request"
+          "field": "Request"
         },
         "directive": "relation"
       },
@@ -760,7 +820,7 @@
     {
       "tag": "CreateField",
       "model": "ReponsesToRequest",
-      "field": "response",
+      "field": "Response",
       "type": "Response",
       "arity": "Required"
     },
@@ -770,7 +830,7 @@
         "path": {
           "tag": "Field",
           "model": "ReponsesToRequest",
-          "field": "response"
+          "field": "Response"
         },
         "directive": "relation"
       }
@@ -782,7 +842,7 @@
         "path": {
           "tag": "Field",
           "model": "ReponsesToRequest",
-          "field": "response"
+          "field": "Response"
         },
         "directive": "relation"
       },
@@ -796,7 +856,7 @@
         "path": {
           "tag": "Field",
           "model": "ReponsesToRequest",
-          "field": "response"
+          "field": "Response"
         },
         "directive": "relation"
       },

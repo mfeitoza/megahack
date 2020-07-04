@@ -5,10 +5,12 @@ export const schema = gql`
     id: String!
     title: String!
     description: String!
-    tags: [Tag!]!
+    Tags: [Tag!]!
     createdAt: DateTime!
-    company: Company
+    Company: Company!
     companyId: String!
+    user: User!
+    userId: String!
     validUntil: DateTime!
   }
 
@@ -23,6 +25,7 @@ export const schema = gql`
     description: String!
     tags: [String!]!
     companyId: String
+    userId: String
     validUntil: DateTime!
   }
 

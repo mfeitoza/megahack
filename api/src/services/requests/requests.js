@@ -22,6 +22,9 @@ export const createRequest = (
       company: {
         connect: { id: currentUser.company.id },
       },
+      user: {
+        connect: { id: currentUser.id },
+      },
       tags: {
         connect: tags.map((tag) => {
           return { name: tag }

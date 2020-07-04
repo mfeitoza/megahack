@@ -8,9 +8,9 @@ export const schema = gql`
     address: String!
     state: String!
     city: String!
-    user: User!
+    User: User!
     userId: String!
-    request: [Request!]
+    Request: [Request!]
   }
 
   type Query {

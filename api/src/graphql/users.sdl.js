@@ -6,7 +6,7 @@ export const schema = gql`
     email: String!
     name: String!
     phone: String!
-    company: Company
+    Company: Company!
   }
 
   type Query {
