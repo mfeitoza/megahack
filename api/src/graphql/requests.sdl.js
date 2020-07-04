@@ -5,9 +5,9 @@ export const schema = gql`
     id: String!
     title: String!
     description: String!
-    Tags: [Tag!]!
+    tags: [Tag!]!
     createdAt: DateTime!
-    Company: Company!
+    company: Company!
     companyId: String!
     user: User!
     userId: String!

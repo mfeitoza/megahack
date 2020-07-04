@@ -14,6 +14,7 @@ export const createRequest = (
   { input: { title, tags, description, validUntil } },
   { context: { currentUser } }
 ) => {
+  console.log(currentUser)
   return db.request.create({
     data: {
       title,
