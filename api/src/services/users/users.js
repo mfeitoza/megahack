@@ -33,3 +33,12 @@ export const User = {
   company: (_obj, { root }) =>
     db.user.findOne({ where: { id: root.id } }).company(),
 }
+
+export const findUserByEmail = ({ email }) => {
+  return db.user.findOne({
+    where: { email },
+    include: {
+      company: true,
+    },
+  })
+}
