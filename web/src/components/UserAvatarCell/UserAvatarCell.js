@@ -11,7 +11,7 @@ export const QUERY = gql`
       id
       email
       name
-      company {
+      Company {
         id
         company
       }

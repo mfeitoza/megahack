@@ -32,6 +32,8 @@ export const deleteUser = ({ id }) => {
 export const User = {
   company: (_obj, { root }) =>
     db.user.findOne({ where: { id: root.id } }).company(),
+  requests: (_obj, { root }) =>
+    db.user.findOne({ where: { id: root.id } }).requests(),
 }
 
 export const findUserByEmail = ({ email }) => {

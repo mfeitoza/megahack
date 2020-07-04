@@ -24,6 +24,7 @@ const SignupPage = () => {
     {
       onCompleted: () => {
         console.log('created')
+        navigate(routes.home())
       },
     }
   )

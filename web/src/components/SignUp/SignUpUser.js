@@ -13,11 +13,11 @@ const CREATE_USER_MUTATION = gql`
   }
 `
 
-const SignupPage = () => {
+const SignupPage = (props) => {
   const { signIn, userMetadata } = useAuth()
   const [createUser, { loading, error }] = useMutation(CREATE_USER_MUTATION, {
-    onCompleted: () => {
-      console.log('created')
+    onCompleted: ({ createUser }) => {
+      navigate(routes.newCompany({ id: createUser.id }))
     },
   })
 
@@ -27,16 +27,14 @@ const SignupPage = () => {
       createUser({
         variables: {
           input: {
-            id: userMetadata.uid,
             name,
             phone,
             email,
           },
         },
       })
-      navigate(routes.newCompany({ id: userMetadata.uid }))
     } catch (e) {
-      console.log(e)
+      console.log('error')
     }
   }
 

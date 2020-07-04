@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import Requests from 'src/components/Requests'
 
 export const QUERY = gql`
@@ -9,7 +8,7 @@ export const QUERY = gql`
       title
       description
       createdAt
-      createdById
+      companyId
       validUntil
     }
   }

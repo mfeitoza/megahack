@@ -1,5 +1,7 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { Link, routes, navigate } from '@redwoodjs/router'
+import { Card, Text, Row, Col, Description } from '@zeit-ui/react'
+import Calendar from '@zeit-ui/react-icons/calendar'
 
 const DELETE_REQUEST_MUTATION = gql`
   mutation DeleteRequestMutation($id: String!) {
@@ -26,56 +28,36 @@ const Request = ({ request }) => {
 
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            Request {request.id} Detail
-          </h2>
-        </header>
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>id</th>
-              <td>{request.id}</td>
-            </tr>
-            <tr>
-              <th>title</th>
-              <td>{request.title}</td>
-            </tr>
-            <tr>
-              <th>description</th>
-              <td>{request.description}</td>
-            </tr>
-            <tr>
-              <th>createdAt</th>
-              <td>{request.createdAt}</td>
-            </tr>
-            <tr>
-              <th>createdById</th>
-              <td>{request.createdById}</td>
-            </tr>
-            <tr>
-              <th>validUntil</th>
-              <td>{request.validUntil}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <nav className="rw-button-group">
-        <Link
-          to={routes.editRequest({ id: request.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
-        <a
-          href="#"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(request.id)}
-        >
-          Delete
-        </a>
-      </nav>
+      <Card shadow>
+        <Row align="middle">
+          <Col span={16}>
+            <Text h4>{request.title}</Text>
+          </Col>
+          <Col span={8}>
+            <Row justify="end" align="middle">
+              <Col span={4}>
+                <Calendar size={16}></Calendar>
+              </Col>
+              <Col>
+                <Text p small>
+                  {new Date(request.validUntil).toDateString()}
+                </Text>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Description title="Descrição" content={request.description} />
+          </Col>
+          <Col>
+            <Description
+              title="Válido até"
+              content={new Date(request.validUntil).toDateString()}
+            />
+          </Col>
+        </Row>
+      </Card>
     </>
   )
 }

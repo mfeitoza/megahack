@@ -6,8 +6,11 @@ export const QUERY = gql`
       id
       title
       description
+      tags {
+        name
+      }
       createdAt
-      createdById
+      companyId
       validUntil
     }
   }

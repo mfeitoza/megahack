@@ -19,7 +19,7 @@ export const getCurrentUser = async (auth) => {
   return db.user.findOne({
     where: { email: decodedToken.email },
     include: {
-      Company: true,
+      company: true,
     },
   })
 }

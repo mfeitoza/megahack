@@ -13,8 +13,11 @@ import { useAuth } from 'src/auth/useAuth'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/users/new" page={NewUserPage} name="newUser" />
+      <Route path="/users/{id}" page={UserPage} name="user" />
+      <Route path="/users" page={UsersPage} name="users" />
       <Route path="/signup" page={SignupPage} name="signup" />
-      <Route path="/signup/{id}" page={CompanyPage} name="newCompany" />
+      <Route path="/signup/{id}" page={SignupCompanyPage} name="newCompany" />
       <Route path="/login" page={LoginPage} name="login" />
       <Private unauthenticated="login">
         <Route path="/home" page={HomePage} name="home" />
