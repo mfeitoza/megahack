@@ -7,7 +7,7 @@ export const schema = gql`
     description: String!
     tags: [Tag!]!
     createdAt: DateTime!
-    company: Company!
+    company: Company
     companyId: String!
     validUntil: DateTime!
   }
