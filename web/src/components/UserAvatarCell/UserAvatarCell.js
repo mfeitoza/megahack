@@ -1,4 +1,5 @@
 import { User } from '@zeit-ui/react'
+import { navigate, routes } from '@redwoodjs/router'
 
 export const beforeQuery = ({ email }) => ({
   variables: { email },
@@ -10,11 +11,10 @@ export const QUERY = gql`
       id
       email
       name
-      company
-      zipCode
-      address
-      state
-      city
+      company {
+        id
+        company
+      }
     }
   }
 `
@@ -24,6 +24,8 @@ export const Loading = () => <div>Loading...</div>
 export const Empty = () => <div>User not found</div>
 
 export const Success = ({ user }) => {
+  if (user.company === null)
+    setTimeout(() => navigate(routes.newCompany({ id: user.id })), 50)
   return (
     <User
       style={{ float: 'right' }}
