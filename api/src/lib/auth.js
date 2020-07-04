@@ -12,7 +12,6 @@ admin.initializeApp({
 
 export const getCurrentUser = async (auth) => {
   const token = typeof auth === 'string' ? auth : auth.token
-  console.log(auth)
   if (!token) {
     throw new AuthenticationError('Uh, oh')
   }
