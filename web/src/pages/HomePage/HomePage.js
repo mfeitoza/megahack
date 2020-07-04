@@ -1,12 +1,11 @@
 import AppLayout from 'src/layouts/AppLayout'
 
+import RequestFeedCell from 'src/components/Feed/RequestsFeedCell'
+
 const HomePage = () => {
   return (
     <AppLayout>
-      <div>
-        <h1>HomePage</h1>
-        <p>Find me in ./web/src/pages/HomePage/HomePage.js</p>
-      </div>
+      <RequestFeedCell />
     </AppLayout>
   )
 }

@@ -46,7 +46,7 @@ const AppLayout = ({ children }) => {
           <Tabs.Item label="Feed" value="/home" />
           <Tabs.Item label="Fornecedores" value="/suppliers" />
         </Tabs>
-        <Page.Content>{children}</Page.Content>
+        <Page.Content style={{ padding: 0 }}>{children}</Page.Content>
       </Page>
     </>
   )
