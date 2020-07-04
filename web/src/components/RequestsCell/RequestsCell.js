@@ -1,5 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import Requests from 'src/components/Requests'
+import Request from 'src/components/Request'
 
 export const QUERY = gql`
   query REQUESTS {
@@ -7,6 +8,19 @@ export const QUERY = gql`
       id
       title
       description
+      tags {
+        name
+      }
+      user {
+        id
+        name
+      }
+      company {
+        id
+        company
+        address
+        city
+      }
       createdAt
       companyId
       validUntil
@@ -32,5 +46,11 @@ export const Empty = () => {
 }
 
 export const Success = ({ requests }) => {
-  return <Requests requests={requests} />
+  return (
+    <>
+      {requests.map((request) => (
+        <Request key={request.id} request={request} />
+      ))}
+    </>
+  )
 }
