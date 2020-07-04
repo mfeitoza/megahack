@@ -1,14 +1,6 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
-import { Link, routes, navigate } from '@redwoodjs/router'
-import {
-  Card,
-  Text,
-  Row,
-  Col,
-  Description,
-  Spacer,
-  Divider,
-} from '@zeit-ui/react'
+import { routes, navigate } from '@redwoodjs/router'
+import { Card, Text, Row, Col, Description, Divider } from '@zeit-ui/react'
 import Calendar from '@zeit-ui/react-icons/calendar'
 import MapPin from '@zeit-ui/react-icons/mapPin'
 
