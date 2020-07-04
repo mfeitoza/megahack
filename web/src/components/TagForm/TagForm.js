@@ -1,20 +1,27 @@
 import { useEffect } from 'react'
-import { Input, useInput } from '@zeit-ui/react'
+import { Input, Button, Spacer } from '@zeit-ui/react'
+import { useForm } from 'react-hook-form'
 
-const TagForm = (props) => {
-  const { state, setState, reset, bindings } = useInput('')
-  useEffect(() => props.setTagInput(state), [state])
+const TagForm = ({ onSave, tag }) => {
+  const { register, handleSubmit, watch, errors } = useForm()
+  const onSubmit = (data) => onSave(data)
 
   return (
-    <Input
-      name="name"
-      defaultValue={props.tag?.name}
-      validation={{ required: true }}
-      width="100%"
-      {...bindings}
-    >
-      Nome da tag
-    </Input>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        name="name"
+        defaultValue={tag?.name}
+        validation={{ required: true }}
+        width="100%"
+        ref={register}
+      >
+        Tag
+      </Input>
+      <Spacer y={0.5} />
+      <Button type="success" htmlType="submit">
+        Criar tag
+      </Button>
+    </form>
   )
 }
 

@@ -1,11 +1,12 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
+import { Text } from '@zeit-ui/react'
 import TagForm from 'src/components/TagForm'
 
 const CREATE_TAG_MUTATION = gql`
   mutation CreateTagMutation($input: CreateTagInput!) {
     createTag(input: $input) {
-      id
+      name
     }
   }
 `
@@ -15,7 +16,6 @@ const NewTag = () => {
   const [createTag, { loading, error }] = useMutation(CREATE_TAG_MUTATION, {
     onCompleted: () => {
       navigate(routes.tags())
-      addMessage('Tag created.', { classes: 'rw-flash-success' })
     },
   })
 
@@ -24,14 +24,10 @@ const NewTag = () => {
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Tag</h2>
-      </header>
-      <div className="rw-segment-main">
-        <TagForm onSave={onSave} loading={loading} error={error} />
-      </div>
-    </div>
+    <>
+      <Text h2>Nova Tag</Text>
+      <TagForm onSave={onSave} loading={loading} error={error} />
+    </>
   )
 }
 

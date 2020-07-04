@@ -2,7 +2,7 @@ import { useMutation, useFlash } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 
 const DELETE_TAG_MUTATION = gql`
-  mutation DeleteTagMutation($name: Int!) {
+  mutation DeleteTagMutation($name: String!) {
     deleteTag(name: $name) {
       name
     }
