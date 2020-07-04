@@ -1,7 +1,6 @@
 import { db } from 'src/lib/db'
 
 export const requests = (_args, { context: { currentUser } }) => {
-  console.log(currentUser)
   return db.request.findMany()
 }
 
@@ -62,5 +61,18 @@ export const Request = {
 export const findRequestsByUser = ({ id }) => {
   return db.request.findMany({
     where: { createdById: id },
+  })
+}
+
+export const allActiveRequest = (_args, { context: { currentUser } }) => {
+  return db.request.findMany({
+    where: {
+      userId: {
+        not: currentUser.id,
+      },
+      validUntil: {
+        gte: new Date(Date.now()),
+      },
+    },
   })
 }

@@ -8,6 +8,7 @@ import { useAuth } from 'src/auth/useAuth'
 const tabsRoute = {
   '/home': routes.home,
   '/suppliers': routes.suppliers,
+  '/requests': routes.requests,
 }
 
 const onChange = (tab) => {
@@ -42,7 +43,8 @@ const AppLayout = ({ children }) => {
           </Row>
         </Page.Header>
         <Tabs {...bindings} onChange={onChange}>
-          <Tabs.Item label="Feed" value="/home" />
+          <Tabs.Item label="Oportunidades" value="/home" />
+          <Tabs.Item label="Requisições" value="/requests" />
           <Tabs.Item label="Fornecedores" value="/suppliers" />
         </Tabs>
         <Page.Content style={{ padding: 0 }}>{children}</Page.Content>

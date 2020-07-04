@@ -18,6 +18,7 @@ export const schema = gql`
     requests: [Request!]!
     request(id: String!): Request!
     findRequestsByUser(createdById: String!): Request!
+    allActiveRequest: [Request!]!
   }
 
   input CreateRequestInput {
