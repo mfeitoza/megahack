@@ -3,6 +3,11 @@ import { useForm, Controller } from 'react-hook-form'
 import { Input, Textarea, Spacer, Button } from '@zeit-ui/react'
 import TagsInputCell from 'src/components/TagsInputCell'
 import { useEffect } from 'react'
+import msk from 'msk'
+
+function dateMask(date) {
+  return msk.fit(date, '99/99/9999')
+}
 
 const RequestForm = (props) => {
   const {
@@ -11,20 +16,26 @@ const RequestForm = (props) => {
     control,
     setValue,
     getValues,
-    errors,
+    watch,
   } = useForm()
-
+  const validUntil = watch('validUntil')
+  const handleValidUntilInput = (value) => {
+    console.log(dateMask(value))
+    setValue('validUntil', dateMask(value))
+  }
   const handleTagsInput = (value) => {
     setValue('tags', value)
   }
 
   useEffect(() => {
     register('tags', { required: true })
+    register('validUntil', { required: true })
   }, [register])
 
   const onSubmit = (data) => {
-    console.log(data)
-    //props.onSave(data, props?.request?.id)
+    const [day, month, year] = data['validUntil'].split('/')
+    data['validUntil'] = new Date(`${year}-${month}-${day}T00:00:00`)
+    props.onSave(data)
   }
 
   return (
@@ -66,8 +77,10 @@ const RequestForm = (props) => {
         name="validUntil"
         defaultValue={props.request?.validUntil}
         validation={{ required: true }}
-        placeholder="dd/mm/yy"
-        ref={register({ required: true })}
+        placeholder="dd/mm/aaaa"
+        value={validUntil}
+        onChange={(e) => handleValidUntilInput(e.target.value)}
+        maxLength={10}
       >
         Validade
       </Input>

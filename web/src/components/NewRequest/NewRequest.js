@@ -17,14 +17,16 @@ const NewRequest = () => {
     CREATE_REQUEST_MUTATION,
     {
       onCompleted: () => {
-        navigate(routes.requests())
-        addMessage('Request created.', { classes: 'rw-flash-success' })
+        console.log('created')
+        //navigate(routes.requests())
+        //addMessage('Request created.', { classes: 'rw-flash-success' })
       },
     }
   )
 
   const onSave = (input) => {
-    //createRequest({ variables: { input } })
+    console.log(input)
+    createRequest({ variables: { input } })
   }
 
   return (
