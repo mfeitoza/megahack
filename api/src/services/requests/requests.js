@@ -10,9 +10,24 @@ export const request = ({ id }) => {
   })
 }
 
-export const createRequest = ({ input }) => {
+export const createRequest = (
+  { input: { title, tags, description, validUntil } },
+  { context: { currentUser } }
+) => {
   return db.request.create({
-    data: input,
+    data: {
+      title,
+      description,
+      validUntil,
+      company: {
+        connect: { id: currentUser.company.id },
+      },
+      tags: {
+        connect: tags.map((tag) => {
+          return { name: tag }
+        }),
+      },
+    },
   })
 }
 

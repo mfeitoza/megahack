@@ -5,10 +5,10 @@ export const schema = gql`
     id: String!
     title: String!
     description: String!
-    tags: [Tag]
+    tags: [Tag!]!
     createdAt: DateTime!
-    createdBy: User!
-    createdById: String!
+    company: Company!
+    companyId: String!
     validUntil: DateTime!
   }
 
@@ -21,14 +21,15 @@ export const schema = gql`
   input CreateRequestInput {
     title: String!
     description: String!
-    createdById: String!
+    tags: [String!]!
+    companyId: String
     validUntil: DateTime!
   }
 
   input UpdateRequestInput {
     title: String
     description: String
-    createdById: String
+    companyId: String
     validUntil: DateTime
   }
 
