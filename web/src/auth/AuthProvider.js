@@ -64,7 +64,7 @@ let AuthProvider = (() => {
       }
       this.signIn = async (options) => {
         await this.rwClient.signin(options)
-        return await this.reauthenticate()
+        return this.reauthenticate()
       }
       this.logOut = async (options) => {
         await this.rwClient.logout(options)
