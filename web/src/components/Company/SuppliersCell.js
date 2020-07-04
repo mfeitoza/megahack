@@ -1,4 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
+import LoadIndicator from 'src/components/LoadIndicator'
 
 import Suppliers from './Suppliers'
 
@@ -23,7 +24,7 @@ export const beforeQuery = (props) => {
   return { variables: props, fetchPolicy: 'cache-and-network' }
 }
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <LoadIndicator />
 
 export const Empty = () => {
   return (
