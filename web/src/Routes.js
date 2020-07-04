@@ -30,6 +30,11 @@ const Routes = () => {
           name="editRequest"
         />
         <Route path="/requests/{id}" page={RequestPage} name="request" />
+        <Route
+          path="/requests/{id}/response"
+          page={ResponsePage}
+          name="response"
+        />
         <Route path="/users/{id}/edit" page={EditUserPage} name="editUser" />
         <Route path="/tags/new" page={NewTagPage} name="newTag" />
         <Route path="/tags/{id:Int}/edit" page={EditTagPage} name="editTag" />

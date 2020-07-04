@@ -19,7 +19,8 @@ export const schema = gql`
   input CreateResponseInput {
     title: String!
     description: String!
-    companyId: String!
+    companyId: String
+    requestId: String
   }
 
   input UpdateResponseInput {
@@ -29,7 +30,7 @@ export const schema = gql`
   }
 
   type Mutation {
-    createResponse(input: CreateResponseInput!): Response!
+    createResponse(requestId: String!, input: CreateResponseInput!): Response!
     updateResponse(id: String!, input: UpdateResponseInput!): Response!
     deleteResponse(id: String!): Response!
   }

@@ -1,5 +1,7 @@
 import { db } from 'src/lib/db'
 
+import { request } from '../requests/requests'
+
 export const responses = () => {
   return db.response.findMany()
 }
@@ -10,9 +12,31 @@ export const response = ({ id }) => {
   })
 }
 
-export const createResponse = ({ input }) => {
+export const createResponse = (
+  { requestId, input },
+  { context: { currentUser } }
+) => {
+  console.log('asdffadssadf')
+  console.log(requestId)
   return db.response.create({
-    data: input,
+    data: {
+      ...input,
+      company: {
+        connect: {
+          id: currentUser.company.id,
+        },
+      },
+      ReponsesToRequest: {
+        create: {
+          status: 'open',
+          request: {
+            connect: {
+              id: requestId,
+            },
+          },
+        },
+      },
+    },
   })
 }
 
