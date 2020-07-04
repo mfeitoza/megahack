@@ -11,9 +11,9 @@ const fetchCep = (cep) => {
     .then((data) => data)
 }
 
-const SignupPage = () => {
+const SignupPage = ({ onSave }) => {
   const { register, handleSubmit, watch, errors, setValue, control } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => onSave(data)
   const zipCode = watch('zipCode')
   const handleZipCode = async (zipCode) => {
     setValue('zipCode', zipCodeMask(zipCode))
@@ -30,81 +30,70 @@ const SignupPage = () => {
   }, [register])
 
   return (
-    <>
-      <Text h2>Empresa</Text>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          name="name"
-          placeholder="Nome e sobrenome"
-          width="100%"
-          ref={register({ required: true })}
-        >
-          Nome
-        </Input>
-        <Spacer y={0.5} />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        name="company"
+        placeholder="Nome fantasia"
+        width="100%"
+        initialValue="Test"
+        ref={register({ required: true })}
+      >
+        Empresa
+      </Input>
+      <Spacer y={0.5} />
 
-        <Input
-          name="company"
-          placeholder="Nome fantasia"
-          width="100%"
-          ref={register({ required: true })}
-        >
-          Empresa
-        </Input>
-        <Spacer y={0.5} />
+      <Input
+        initialValue="27933-160"
+        name="zipCode"
+        placeholder="99999-999"
+        width="100%"
+        value={zipCode}
+        onChange={(e) => handleZipCode(e.target.value)}
+        maxLength={9}
+      >
+        CEP
+      </Input>
+      <Spacer y={0.5} />
 
-        <Input
-          name="zipCode"
-          placeholder="99999-999"
-          width="100%"
-          value={zipCode}
-          onChange={(e) => handleZipCode(e.target.value)}
-          maxLength={9}
-        >
-          CEP
-        </Input>
-        <Spacer y={0.5} />
+      <Input
+        name="address"
+        placeholder="Endereço"
+        width="100%"
+        ref={register}
+        disabled
+      >
+        Endereço
+      </Input>
+      <Spacer y={0.5} />
 
-        <Input
-          name="address"
-          placeholder="Endereço"
-          width="100%"
-          ref={register}
-          disabled
-        >
-          Endereço
-        </Input>
-        <Spacer y={0.5} />
+      <Input
+        name="state"
+        placeholder="Estado"
+        width="100%"
+        ref={register}
+        disabled
+      >
+        Estado
+      </Input>
+      <Spacer y={0.5} />
 
-        <Input
-          name="state"
-          placeholder="Estado"
-          width="100%"
-          ref={register}
-          disabled
-        >
-          Estado
-        </Input>
-        <Spacer y={0.5} />
+      <Input
+        name="city"
+        placeholder="Cidade"
+        width="100%"
+        ref={register}
+        disabled
+      >
+        Cidade
+      </Input>
+      <Spacer y={0.5} />
 
-        <Input
-          name="city"
-          placeholder="Cidade"
-          width="100%"
-          ref={register}
-          disabled
-        >
-          Cidade
-        </Input>
-        <Spacer y={0.5} />
+      <Spacer y={0.5} />
 
-        <Spacer y={0.5} />
-
-        <Button type="success" htmlType="submit">
-          Finalizar
-        </Button>
-      </form>
-    </>
+      <Button type="success" htmlType="submit">
+        Finalizar
+      </Button>
+    </form>
   )
 }
 

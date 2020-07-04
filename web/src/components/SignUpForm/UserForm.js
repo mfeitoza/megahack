@@ -1,14 +1,45 @@
-import { Input, Spacer, Text, Button } from '@zeit-ui/react'
+import { Input, Spacer, Button } from '@zeit-ui/react'
 import { useForm } from 'react-hook-form'
 
-const SignupPage = () => {
-  const { register, handleSubmit, watch, errors } = useForm()
-  const onSubmit = (data) => console.log(data)
+const SignupPage = ({ onSave }) => {
+  const { register, handleSubmit } = useForm()
+
+  const onSubmit = (data) => {
+    onSave(data)
+  }
+
   return (
     <>
-      <Text h2>Usuário</Text>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <Input name="email" placeholder="Email" width="100%" ref={register}>
+        <Input
+          name="name"
+          placeholder="Nome"
+          initialValue="Marcus Feitoza"
+          width="100%"
+          ref={register}
+        >
+          Nome
+        </Input>
+        <Spacer y={0.5} />
+
+        <Input
+          name="phone"
+          placeholder="Nome"
+          initialValue="22981595548"
+          width="100%"
+          ref={register}
+        >
+          Celular
+        </Input>
+        <Spacer y={0.5} />
+
+        <Input
+          name="email"
+          placeholder="Email"
+          initialValue="sir-markus@live.com"
+          width="100%"
+          ref={register}
+        >
           Email
         </Input>
         <Spacer y={0.5} />
@@ -16,6 +47,7 @@ const SignupPage = () => {
         <Input.Password
           name="password"
           placeholder="•••••••"
+          initialValue="30435192"
           width="100%"
           ref={register}
         >
