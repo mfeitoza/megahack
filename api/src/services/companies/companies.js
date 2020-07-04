@@ -37,3 +37,14 @@ export const Company = {
   responses: (_obj, { root }) =>
     db.company.findOne({ where: { id: root.id } }).responses(),
 }
+
+export const createCompanyWithUser = ({ userId, input }) => {
+  return db.company.create({
+    data: {
+      ...input,
+      user: {
+        connect: { id: userId },
+      },
+    },
+  })
+}

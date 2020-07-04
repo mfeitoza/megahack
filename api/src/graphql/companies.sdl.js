@@ -24,7 +24,7 @@ export const schema = gql`
     address: String!
     state: String!
     city: String!
-    userId: String!
+    userId: String
   }
 
   input UpdateCompanyInput {
@@ -38,6 +38,7 @@ export const schema = gql`
 
   type Mutation {
     createCompany(input: CreateCompanyInput!): Company!
+    createCompanyWithUser(userId: String!, input: CreateCompanyInput!): Company!
     updateCompany(id: String!, input: UpdateCompanyInput!): Company!
     deleteCompany(id: String!): Company!
   }
