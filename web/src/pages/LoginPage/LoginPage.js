@@ -1,10 +1,13 @@
 import { Input, Spacer, Button } from '@zeit-ui/react'
+import { navigate, routes } from '@redwoodjs/router'
 import DefaultLayout from 'src/layouts/DefaultLayout'
 import { useForm } from 'react-hook-form'
 
 import { useAuth } from 'src/auth/useAuth'
 
 const LoginPage = () => {
+  const { isAuthenticated } = useAuth()
+  if (isAuthenticated) setTimeout(() => navigate(routes.home()), 20)
   const { register, handleSubmit, watch, errors } = useForm()
 
   const { logIn } = useAuth()
@@ -30,7 +33,7 @@ const LoginPage = () => {
           <Input.Password
             name="password"
             placeholder="••••••••"
-            initialValue="123456"
+            initialValue="30435192"
             width="100%"
             ref={register}
           >
