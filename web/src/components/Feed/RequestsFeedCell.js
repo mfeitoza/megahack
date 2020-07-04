@@ -1,4 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
+import { Grid } from '@zeit-ui/react'
 import Request from 'src/components/Request'
 
 export const QUERY = gql`
@@ -46,10 +47,12 @@ export const Empty = () => {
 
 export const Success = ({ requests }) => {
   return (
-    <>
+    <Grid.Container gap={2}>
       {requests.map((request) => (
-        <Request key={request.id} request={request} />
+        <Grid key={request.id} xs={24}>
+          <Request request={request} />
+        </Grid>
       ))}
-    </>
+    </Grid.Container>
   )
 }
