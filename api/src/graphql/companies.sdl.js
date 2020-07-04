@@ -10,8 +10,7 @@ export const schema = gql`
     city: String!
     user: User!
     userId: String!
-    Request: [Request!]!
-    Response: [Response!]!
+    request: [Request!]!
   }
 
   type Query {

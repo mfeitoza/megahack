@@ -12,16 +12,24 @@ generator client {
 // migrations for them.
 // TODO: Please remove the following example:
 model User {
-  id        String     @id @default(cuid())
-  email     String     @unique
-  name      String
-  company   String
-  zipCode   String
-  address   String
-  state     String
-  city      String
-  requests  Request[]
-  responses Response[]
+  id      String   @id @default(cuid())
+  email   String   @unique
+  name    String
+  phone   String
+  company Company?
+}
+
+model Company {
+  id       String     @id @default(cuid())
+  company  String
+  zipCode  String
+  address  String
+  state    String
+  city     String
+  user     User       @relation(fields: [userId], references: [id])
+  userId   String
+  request  Request[]
+  response Response[]
 }
 
 model Tag {
@@ -36,8 +44,8 @@ model Request {
   description       String
   tags              Tag[]               @relation(references: [id])
   createdAt         DateTime            @default(now())
-  createdBy         User                @relation(fields: [createdById], references: [id])
-  createdById       String
+  company           Company             @relation(fields: [companyId], references: [id])
+  companyId         String
   validUntil        DateTime
   ReponsesToRequest ReponsesToRequest[]
 }
@@ -47,8 +55,8 @@ model Response {
   title             String
   description       String
   createdAt         DateTime            @default(now())
-  created           User                @relation(fields: [createdBy], references: [id])
-  createdBy         String
+  company           Company             @relation(fields: [companyId], references: [id])
+  companyId         String
   ReponsesToRequest ReponsesToRequest[]
 }
 

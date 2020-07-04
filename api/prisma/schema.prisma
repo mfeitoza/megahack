@@ -28,8 +28,8 @@ model Company {
   city     String
   user     User       @relation(fields: [userId], references: [id])
   userId   String
-  Request  Request[]
-  Response Response[]
+  request  Request[]
+  response Response[]
 }
 
 model Tag {

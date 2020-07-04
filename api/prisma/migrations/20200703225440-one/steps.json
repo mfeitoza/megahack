@@ -98,61 +98,26 @@
     {
       "tag": "CreateField",
       "model": "User",
+      "field": "phone",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
       "field": "company",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "zipCode",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "address",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "state",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "city",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "request",
-      "type": "Request",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "User",
-      "field": "response",
-      "type": "Response",
-      "arity": "List"
+      "type": "Company",
+      "arity": "Optional"
     },
     {
       "tag": "CreateModel",
-      "model": "Category"
+      "model": "Company"
     },
     {
       "tag": "CreateField",
-      "model": "Category",
+      "model": "Company",
       "field": "id",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -160,7 +125,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Category",
+          "model": "Company",
           "field": "id"
         },
         "directive": "id"
@@ -171,7 +136,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Category",
+          "model": "Company",
           "field": "id"
         },
         "directive": "default"
@@ -183,35 +148,63 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "Category",
+          "model": "Company",
           "field": "id"
         },
         "directive": "default"
       },
       "argument": "",
-      "value": "autoincrement()"
+      "value": "cuid()"
     },
     {
       "tag": "CreateField",
-      "model": "Category",
-      "field": "name",
+      "model": "Company",
+      "field": "company",
       "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
-      "model": "Category",
-      "field": "request",
-      "type": "Request",
-      "arity": "List"
+      "model": "Company",
+      "field": "zipCode",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "address",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "state",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "city",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "user",
+      "type": "User",
+      "arity": "Required"
     },
     {
       "tag": "CreateDirective",
       "location": {
         "path": {
           "tag": "Field",
-          "model": "Category",
-          "field": "request"
+          "model": "Company",
+          "field": "user"
         },
         "directive": "relation"
       }
@@ -222,8 +215,140 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "Category",
-          "field": "request"
+          "model": "Company",
+          "field": "user"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[userId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Company",
+          "field": "user"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "userId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "request",
+      "type": "Request",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Company",
+      "field": "response",
+      "type": "Response",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "Tag"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tag",
+      "field": "id",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "autoincrement()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tag",
+      "field": "name",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "name"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Tag",
+      "field": "requests",
+      "type": "Request",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "requests"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "requests"
         },
         "directive": "relation"
       },
@@ -294,8 +419,8 @@
     {
       "tag": "CreateField",
       "model": "Request",
-      "field": "category",
-      "type": "Category",
+      "field": "tags",
+      "type": "Tag",
       "arity": "List"
     },
     {
@@ -304,7 +429,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "category"
+          "field": "tags"
         },
         "directive": "relation"
       }
@@ -316,7 +441,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "category"
+          "field": "tags"
         },
         "directive": "relation"
       },
@@ -358,8 +483,8 @@
     {
       "tag": "CreateField",
       "model": "Request",
-      "field": "created",
-      "type": "User",
+      "field": "company",
+      "type": "Company",
       "arity": "Required"
     },
     {
@@ -368,7 +493,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "created"
+          "field": "company"
         },
         "directive": "relation"
       }
@@ -380,12 +505,12 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "created"
+          "field": "company"
         },
         "directive": "relation"
       },
       "argument": "fields",
-      "value": "[createdBy]"
+      "value": "[companyId]"
     },
     {
       "tag": "CreateArgument",
@@ -394,7 +519,7 @@
         "path": {
           "tag": "Field",
           "model": "Request",
-          "field": "created"
+          "field": "company"
         },
         "directive": "relation"
       },
@@ -404,7 +529,7 @@
     {
       "tag": "CreateField",
       "model": "Request",
-      "field": "createdBy",
+      "field": "companyId",
       "type": "String",
       "arity": "Required"
     },
@@ -418,55 +543,9 @@
     {
       "tag": "CreateField",
       "model": "Request",
-      "field": "response",
-      "type": "Response",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Request",
-          "field": "response"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Request",
-          "field": "response"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[responseId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Request",
-          "field": "response"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Request",
-      "field": "responseId",
-      "type": "String",
-      "arity": "Optional"
+      "field": "ReponsesToRequest",
+      "type": "ReponsesToRequest",
+      "arity": "List"
     },
     {
       "tag": "CreateModel",
@@ -564,8 +643,8 @@
     {
       "tag": "CreateField",
       "model": "Response",
-      "field": "created",
-      "type": "User",
+      "field": "company",
+      "type": "Company",
       "arity": "Required"
     },
     {
@@ -574,7 +653,7 @@
         "path": {
           "tag": "Field",
           "model": "Response",
-          "field": "created"
+          "field": "company"
         },
         "directive": "relation"
       }
@@ -586,12 +665,12 @@
         "path": {
           "tag": "Field",
           "model": "Response",
-          "field": "created"
+          "field": "company"
         },
         "directive": "relation"
       },
       "argument": "fields",
-      "value": "[createdBy]"
+      "value": "[companyId]"
     },
     {
       "tag": "CreateArgument",
@@ -600,7 +679,7 @@
         "path": {
           "tag": "Field",
           "model": "Response",
-          "field": "created"
+          "field": "company"
         },
         "directive": "relation"
       },
@@ -610,16 +689,208 @@
     {
       "tag": "CreateField",
       "model": "Response",
-      "field": "createdBy",
+      "field": "companyId",
       "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
       "model": "Response",
+      "field": "ReponsesToRequest",
+      "type": "ReponsesToRequest",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "ReponsesToRequest"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "cuid()"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
       "field": "request",
       "type": "Request",
-      "arity": "List"
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "request"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "request"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[requestId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "request"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
+      "field": "requestId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
+      "field": "response",
+      "type": "Response",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "response"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "response"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[responseId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "response"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
+      "field": "responseId",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
+      "field": "selected",
+      "type": "Boolean",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "selected"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "ReponsesToRequest",
+          "field": "selected"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "false"
+    },
+    {
+      "tag": "CreateField",
+      "model": "ReponsesToRequest",
+      "field": "status",
+      "type": "String",
+      "arity": "Required"
     }
   ]
 }

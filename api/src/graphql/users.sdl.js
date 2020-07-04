@@ -5,37 +5,26 @@ export const schema = gql`
     id: String!
     email: String!
     name: String!
-    company: String!
-    zipCode: String!
-    address: String!
-    state: String!
-    city: String!
+    phone: String!
+    company: Company
   }
 
   type Query {
     users: [User!]!
     user(id: String!): User!
-    findUserByEmail(email: String): User!
   }
 
   input CreateUserInput {
+    id: String!
     email: String!
     name: String!
-    company: String!
-    zipCode: String!
-    address: String!
-    state: String!
-    city: String!
+    phone: String!
   }
 
   input UpdateUserInput {
     email: String
     name: String
-    company: String
-    zipCode: String
-    address: String
-    state: String
-    city: String
+    phone: String
   }
 
   type Mutation {
