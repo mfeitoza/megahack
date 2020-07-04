@@ -48,3 +48,12 @@ export const createCompanyWithUser = ({ userId, input }) => {
     },
   })
 }
+
+export const companyRequests = (_args, { context: { currentUser } }) => {
+  console.log(currentUser.company)
+  return db.company
+    .findOne({
+      where: { id: currentUser.company.id },
+    })
+    .request()
+}

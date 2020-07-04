@@ -1,6 +1,7 @@
 import { db } from 'src/lib/db'
 
-export const requests = () => {
+export const requests = (_args, { context: { currentUser } }) => {
+  console.log(currentUser)
   return db.request.findMany()
 }
 
@@ -14,7 +15,6 @@ export const createRequest = (
   { input: { title, tags, description, validUntil } },
   { context: { currentUser } }
 ) => {
-  console.log(currentUser)
   return db.request.create({
     data: {
       title,

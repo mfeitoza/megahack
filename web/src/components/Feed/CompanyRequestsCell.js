@@ -1,11 +1,10 @@
 import { Link, routes } from '@redwoodjs/router'
-import { Grid } from '@zeit-ui/react'
 
 import Requests from 'src/components/Request/Requests'
 
 export const QUERY = gql`
-  query REQUESTS {
-    requests {
+  query COMPANY_REQUESTS_FEED {
+    companyRequests {
       id
       title
       description
@@ -46,6 +45,6 @@ export const Empty = () => {
   )
 }
 
-export const Success = ({ requests }) => {
-  return <Requests requests={requests} />
+export const Success = ({ companyRequests }) => {
+  return <Requests requests={companyRequests} />
 }

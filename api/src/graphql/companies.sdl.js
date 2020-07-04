@@ -4,7 +4,7 @@ export const schema = gql`
   type Company {
     id: String!
     company: String!
-    isSupplier: Boolean!
+    isSupplier: Boolean
     zipCode: String!
     address: String!
     state: String!
@@ -17,6 +17,7 @@ export const schema = gql`
 
   type Query {
     companies: [Company!]!
+    companyRequests: [Request!]!
     company(id: String!): Company!
   }
 

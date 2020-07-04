@@ -1,8 +1,8 @@
 import AppLayout from 'src/layouts/AppLayout'
 import { Link, routes } from '@redwoodjs/router'
-import { Button, Spacer, Grid } from '@zeit-ui/react'
+import { Button, Grid } from '@zeit-ui/react'
 
-import RequestFeedCell from 'src/components/Feed/RequestsFeedCell'
+import CompanyRequests from 'src/components/Feed/CompanyRequestsCell'
 
 const HomePage = () => {
   return (
@@ -17,7 +17,7 @@ const HomePage = () => {
         </Grid>
 
         <Grid xs={24}>
-          <RequestFeedCell />
+          <CompanyRequests />
         </Grid>
       </Grid.Container>
     </AppLayout>
