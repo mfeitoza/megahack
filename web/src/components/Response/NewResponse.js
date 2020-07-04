@@ -21,9 +21,7 @@ const NewRequest = () => {
     CREATE_RESPONSE_MUTATION,
     {
       onCompleted: () => {
-        console.log('created')
-        //navigate(routes.requests())
-        //addMessage('Request created.', { classes: 'rw-flash-success' })
+        navigate(routes.request({ id }))
       },
     }
   )

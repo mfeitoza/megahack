@@ -1,7 +1,5 @@
 import { db } from 'src/lib/db'
 
-import { request } from '../requests/requests'
-
 export const responses = () => {
   return db.response.findMany()
 }
