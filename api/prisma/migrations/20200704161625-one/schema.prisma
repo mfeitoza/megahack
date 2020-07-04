@@ -1,6 +1,6 @@
 datasource DS {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -16,7 +16,7 @@ model User {
   email   String    @unique
   name    String
   phone   String
-  company Company?
+  company Company[]
   request Request[]
 }
 
@@ -27,7 +27,7 @@ model Company {
   address  String
   state    String
   city     String
-  user     User       @relation(fields: [userId], references: [id])
+  User     User       @relation(fields: [userId], references: [id])
   userId   String
   request  Request[]
   response Response[]
