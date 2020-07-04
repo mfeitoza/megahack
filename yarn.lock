@@ -8408,6 +8408,11 @@ ms@2.1.2, ms@^2.1.1, ms@^2.1.2:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
+msk@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/msk/-/msk-1.0.5.tgz#f085744d472caf3d5a32fe85c1c71db1cddb1480"
+  integrity sha512-IdnSUa9lWrsCiwfIVmdgPhXu6+HFIEIlxMk2QDktzTP6VVkz2pm2aMktYS7mnicsKFa/K/oO6rsPKK2eYAsAzQ==
+
 msw@^0.19.0:
   version "0.19.4"
   resolved "https://registry.yarnpkg.com/msw/-/msw-0.19.4.tgz#059026de0cc3303847c27d3aa0e98705a1033df6"
