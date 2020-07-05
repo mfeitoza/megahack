@@ -28,7 +28,7 @@ const AppLayout = ({ children }) => {
           <Row gap={1} justify="center" style={{ margin: '0px' }}>
             <Col>
               <Row justify="start">
-                <Minimize2 size={32} />
+                <img src="logo.png" width="40" />
               </Row>
             </Col>
             <Col>

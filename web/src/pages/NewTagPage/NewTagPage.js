@@ -1,11 +1,11 @@
-import TagsLayout from 'src/layouts/TagsLayout'
+import AppLayout from 'src/layouts/AppLayout'
 import NewTag from 'src/components/NewTag'
 
 const NewTagPage = () => {
   return (
-    <TagsLayout>
+    <AppLayout>
       <NewTag />
-    </TagsLayout>
+    </AppLayout>
   )
 }
 
