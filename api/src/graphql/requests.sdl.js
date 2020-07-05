@@ -12,6 +12,7 @@ export const schema = gql`
     user: User!
     userId: String!
     validUntil: DateTime!
+    responses: [Response]
   }
 
   type Query {

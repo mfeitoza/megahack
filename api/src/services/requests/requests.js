@@ -54,6 +54,9 @@ export const Request = {
     db.request.findOne({ where: { id: root.id } }).user(),
   reponsesToRequests: (_obj, { root }) =>
     db.request.findOne({ where: { id: root.id } }).reponsesToRequests(),
+  responses: (_obj, { root }) => {
+    return db.request.findOne({ where: { id: root.id } }).ReponsesToRequest()
+  },
   company: (_obj, { root }) =>
     db.request.findOne({ where: { id: root.id } }).company(),
 }

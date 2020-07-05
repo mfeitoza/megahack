@@ -1,12 +1,12 @@
-import RequestsLayout from 'src/layouts/RequestsLayout'
+import AppLayout from 'src/layouts/AppLayout'
 
 import RequestCell from 'src/components/Request/RequestCell'
 
 const RequestPage = ({ id }) => {
   return (
-    <RequestsLayout>
+    <AppLayout>
       <RequestCell id={id} />
-    </RequestsLayout>
+    </AppLayout>
   )
 }
 
