@@ -1,6 +1,5 @@
 import AppLayout from 'src/layouts/AppLayout'
-import { Link, routes } from '@redwoodjs/router'
-import { Button, Grid } from '@zeit-ui/react'
+import { Grid } from '@zeit-ui/react'
 
 import ActiveRequestsCell from 'src/components/Feed/ActiveRequestsCell'
 

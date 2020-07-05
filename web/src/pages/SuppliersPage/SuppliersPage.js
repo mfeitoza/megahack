@@ -7,7 +7,9 @@ const HomePage = () => {
   return (
     <AppLayout>
       <Grid.Container gap={2} justify="center">
-        <SuppliersCell />
+        <Grid xs={24}>
+          <SuppliersCell />
+        </Grid>
       </Grid.Container>
     </AppLayout>
   )
