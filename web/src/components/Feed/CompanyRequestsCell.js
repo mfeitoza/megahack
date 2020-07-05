@@ -40,5 +40,5 @@ export const Empty = () => {
 }
 
 export const Success = ({ companyRequests }) => {
-  return <Requests requests={companyRequests} />
+  return <Requests requests={companyRequests} action="show" />
 }

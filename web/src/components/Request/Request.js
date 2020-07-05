@@ -10,7 +10,35 @@ import {
 } from '@zeit-ui/react'
 import MapPin from '@zeit-ui/react-icons/mapPin'
 
-const Request = ({ request }) => {
+const Request = ({ request, action = '' }) => {
+  const btn = (type) => {
+    switch (type) {
+      case 'response':
+        return (
+          <Button
+            type="secondary"
+            auto
+            size="small"
+            onClick={() => navigate(routes.response({ id: request.id }))}
+          >
+            Responder
+          </Button>
+        )
+      case 'show':
+        return (
+          <Button
+            type="secondary"
+            auto
+            size="small"
+            onClick={() => navigate(routes.request({ id: request.id }))}
+          >
+            Respostas
+          </Button>
+        )
+      default:
+        return <></>
+    }
+  }
   return (
     <>
       <Card shadow>
@@ -19,16 +47,7 @@ const Request = ({ request }) => {
             <Col span={18}>
               <Text h4>{request.title}</Text>
             </Col>
-            <Col span={6}>
-              <Button
-                type="secondary"
-                auto
-                size="small"
-                onClick={() => navigate(routes.response({ id: request.id }))}
-              >
-                Responder
-              </Button>
-            </Col>
+            <Col span={6}>{btn(action)}</Col>
           </Row>
           <Row>
             <Col span={12}>

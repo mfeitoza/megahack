@@ -22,6 +22,22 @@ export const QUERY = gql`
       createdAt
       companyId
       validUntil
+      responses {
+        id
+        title
+        description
+        createdAt
+        company {
+          company
+          address
+          state
+          city
+          user {
+            name
+            phone
+          }
+        }
+      }
     }
   }
 `

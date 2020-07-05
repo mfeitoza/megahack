@@ -1,11 +1,11 @@
 import AppLayout from 'src/layouts/AppLayout'
 
-import RequestCell from 'src/components/Request/RequestCell'
+import RequestAndResponsesCell from 'src/components/Request/RequestAndResponsesCell'
 
 const RequestPage = ({ id }) => {
   return (
     <AppLayout>
-      <RequestCell id={id} />
+      <RequestAndResponsesCell id={id} />
     </AppLayout>
   )
 }

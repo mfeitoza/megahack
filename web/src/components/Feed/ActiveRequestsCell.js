@@ -44,5 +44,5 @@ export const Empty = () => {
 }
 
 export const Success = ({ allActiveRequest }) => {
-  return <Requests requests={allActiveRequest} />
+  return <Requests requests={allActiveRequest} action="response" />
 }
