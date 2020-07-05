@@ -4,7 +4,7 @@
 ### Setup
 
 ```terminal
-// installar dependências
+// instalar dependências
 yarn install
 // adicionar banco de dados teste
 yarn rw db save
