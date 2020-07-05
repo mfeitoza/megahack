@@ -1,6 +1,6 @@
 import { db } from 'src/lib/db'
 
-export const users = () => {
+export const users = async () => {
   return db.user.findMany()
 }
 

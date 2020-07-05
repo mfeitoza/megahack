@@ -1,7 +1,7 @@
 import { db } from 'src/lib/db'
 
 export const companies = () => {
-  return db.company.findMany()
+  return db.company.findMany({ include: { user: true } })
 }
 
 export const company = ({ id }) => {
@@ -50,7 +50,6 @@ export const createCompanyWithUser = ({ userId, input }) => {
 }
 
 export const companyRequests = (_args, { context: { currentUser } }) => {
-  console.log(currentUser.company)
   return db.company
     .findOne({
       where: { id: currentUser.company.id },
@@ -61,5 +60,8 @@ export const companyRequests = (_args, { context: { currentUser } }) => {
 export const suppliers = () => {
   return db.company.findMany({
     where: { isSupplier: true },
+    incluse: {
+      user: true,
+    },
   })
 }

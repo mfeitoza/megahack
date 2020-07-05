@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@redwoodjs/api": "^0.12.0",
+    "@zenvia/sdk": "^1.2.0",
     "firebase-admin": "^8.13.0"
   }
 }

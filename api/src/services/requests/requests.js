@@ -1,6 +1,8 @@
+import { suppliers } from 'src/services/companies/companies'
 import { db } from 'src/lib/db'
+import zenvia from 'src/lib/zenvia'
 
-export const requests = (_args, { context: { currentUser } }) => {
+export const requests = () => {
   return db.request.findMany()
 }
 
@@ -14,7 +16,7 @@ export const createRequest = (
   { input: { title, tags, description, validUntil } },
   { context: { currentUser } }
 ) => {
-  return db.request.create({
+  const query = db.request.create({
     data: {
       title,
       description,
@@ -32,6 +34,13 @@ export const createRequest = (
       },
     },
   })
+  /*
+  const suppliersList = await suppliers()
+  suppliersList.map((supplier) => {
+    zenvia.send(supplier.user.phone, 'Nova oportunidade: ' + title)
+  })
+  */
+  return query
 }
 
 export const updateRequest = ({ id, input }) => {
@@ -85,6 +94,5 @@ export const getRequestAndResponses = async ({ id }) => {
       response: true,
     },
   })
-  console.log(query)
   return query
 }
