@@ -8,7 +8,6 @@ export const schema = gql`
     createdAt: DateTime!
     company: Company!
     companyId: String!
-    ReponsesToRequest: [ReponsesToRequest]
   }
 
   type Query {

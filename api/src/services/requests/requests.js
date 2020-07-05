@@ -52,11 +52,8 @@ export const Request = {
     db.request.findOne({ where: { id: root.id } }).tags(),
   user: (_obj, { root }) =>
     db.request.findOne({ where: { id: root.id } }).user(),
-  reponsesToRequest: (_obj, { root }) => {
-    return db.request.findOne({ where: { id: root.id } }).ReponsesToRequest()
-  },
   responses: (_obj, { root }) => {
-    return db.request.findOne({ where: { id: root.id } }).ReponsesToRequest()
+    return db.request.findOne({ where: { id: root.id } }).responses()
   },
   company: (_obj, { root }) =>
     db.request.findOne({ where: { id: root.id } }).company(),
@@ -97,9 +94,7 @@ export const getRequestAndResponses = async ({ id }) => {
   const query = await db.request.findOne({
     where: { id },
     include: {
-      ReponsesToRequest: {
-        include: { response: true },
-      },
+      response: true,
     },
   })
   console.log(query)
