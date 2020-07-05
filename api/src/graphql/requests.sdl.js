@@ -12,7 +12,6 @@ export const schema = gql`
     user: User!
     userId: String!
     validUntil: DateTime!
-    reponsesToRequest: [ReponsesToRequest]
     responses: [Response]
   }
 
