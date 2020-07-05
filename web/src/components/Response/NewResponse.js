@@ -1,4 +1,4 @@
-import { useMutation, useFlash } from '@redwoodjs/web'
+import { useMutation } from '@redwoodjs/web'
 import { navigate, routes, useParams } from '@redwoodjs/router'
 import { Text } from '@zeit-ui/react'
 

@@ -1,5 +1,5 @@
 import { User } from '@zeit-ui/react'
-import { navigate, routes } from '@redwoodjs/router'
+import { navigate, routes, Link } from '@redwoodjs/router'
 
 export const beforeQuery = ({ email }) => ({
   variables: { email },
@@ -28,10 +28,8 @@ export const Success = ({ user }) => {
   if (user.company === null)
     setTimeout(() => navigate(routes.newCompany({ id: user.id })), 50)
   return (
-    <User
-      style={{ float: 'right' }}
-      src="https://zeit.co/api/www/avatar/?u=evilrabbit&s=160"
-      name={user.name}
-    />
+    <Link to={routes.profile({ id: user.id })}>
+      <User style={{ float: 'right' }} name={user.name} />
+    </Link>
   )
 }

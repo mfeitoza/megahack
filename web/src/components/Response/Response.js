@@ -1,34 +1,74 @@
-import { routes, navigate } from '@redwoodjs/router'
 import {
   Card,
-  Text,
+  Button,
+  Description,
   Row,
   Col,
-  Description,
-  Divider,
-  Button,
-  Fieldset,
+  Text,
+  Link,
+  Spacer,
 } from '@zeit-ui/react'
+import { routes } from '@redwoodjs/router'
 import MapPin from '@zeit-ui/react-icons/mapPin'
+import Phone from '@zeit-ui/react-icons/phone'
 
 const Response = ({ response }) => {
+  console.log(response)
   return (
     <>
-      <Fieldset>
-        <Fieldset.Title>{response.title}</Fieldset.Title>
-        <Fieldset.Subtitle>{response.description}</Fieldset.Subtitle>
-
-        <Fieldset.Footer>
-          <Fieldset.Footer.Status>
-            {`${response.company.company} • ${response.company.address}, ${response.company.city}`}
-          </Fieldset.Footer.Status>
-          <Fieldset.Footer.Actions>
-            <Button auto size="mini">
-              Actions
+      <Card>
+        <Card.Content>
+          <Row>
+            <Col>
+              <Link href={routes.home()} color>
+                <Text h5>@{response.company.company}</Text>
+              </Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Text span b>
+                {response.title}
+              </Text>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Text span>{response.description}</Text>
+            </Col>
+          </Row>
+          <Spacer y={0.8} />
+          <Row align="middle">
+            <Col span={2}>
+              <MapPin size={18} />
+            </Col>
+            <Col span={22}>
+              <Text
+                span
+                small
+              >{`${response.company.address}, ${response.company.city}`}</Text>
+            </Col>
+          </Row>
+          <Spacer y={0.2} />
+          <Row align="middle">
+            <Col span={2}>
+              <Phone size={18} />
+            </Col>
+            <Col span={22}>
+              <Text span small>
+                {response.company.user.phone}
+              </Text>
+            </Col>
+          </Row>
+        </Card.Content>
+        <Card.Footer>
+          <Row>
+            <Button size="mini" type="secondary">
+              Aceitar
             </Button>
-          </Fieldset.Footer.Actions>
-        </Fieldset.Footer>
-      </Fieldset>
+          </Row>
+        </Card.Footer>
+      </Card>
     </>
   )
 }

@@ -18,9 +18,8 @@ const NewRequest = () => {
     CREATE_REQUEST_MUTATION,
     {
       onCompleted: () => {
-        console.log('created')
-        //navigate(routes.requests())
-        //addMessage('Request created.', { classes: 'rw-flash-success' })
+        navigate(routes.requests())
+        addMessage('Requisição criada.', {})
       },
     }
   )

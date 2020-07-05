@@ -20,6 +20,7 @@ const AppLayout = ({ children }) => {
   const { setTab, bindings } = useTabs(pathname)
 
   const { userMetadata, logOut } = useAuth()
+
   return (
     <>
       <Page style={{ paddingTop: '1rem' }}>
@@ -47,7 +48,7 @@ const AppLayout = ({ children }) => {
           <Tabs.Item label="Requisições" value="/requests" />
           <Tabs.Item label="Fornecedores" value="/suppliers" />
         </Tabs>
-        <Page.Content style={{ padding: 0 }}>{children}</Page.Content>
+        <Page.Content style={{ paddingTop: '1rem' }}>{children}</Page.Content>
       </Page>
     </>
   )

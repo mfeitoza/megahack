@@ -15,7 +15,7 @@ const Routes = () => {
     <Router>
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/signup/{id}" page={SignupCompanyPage} name="newCompany" />
-      <Route path="/login" page={LoginPage} name="login" />
+      <Route path="/" page={LoginPage} name="login" />
       <Private unauthenticated="login">
         <Route path="/home" page={HomePage} name="home" />
         <Route path="/suppliers" page={SuppliersPage} name="suppliers" />
@@ -28,6 +28,7 @@ const Routes = () => {
           name="response"
         />
         <Route path="/tags/new" page={NewTagPage} name="newTag" />
+        <Route path="/profile/{id}" page={ProfilePage} name="profile" />
       </Private>
       <Route notfound page={NotFoundPage} />
     </Router>
