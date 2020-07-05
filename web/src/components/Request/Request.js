@@ -7,10 +7,13 @@ import {
   Description,
   Divider,
   Button,
+  Badge,
+  Spacer,
 } from '@zeit-ui/react'
 import MapPin from '@zeit-ui/react-icons/mapPin'
 
 const Request = ({ request, action = '' }) => {
+  console.log(request)
   const btn = (type) => {
     switch (type) {
       case 'response':
@@ -59,6 +62,14 @@ const Request = ({ request, action = '' }) => {
                 content={new Date(request.validUntil).toDateString()}
               />
             </Col>
+          </Row>
+          <Spacer y={0.5} />
+          <Row>
+            {request.tags.map((tag) => (
+              <Col key={tag.name}>
+                <Badge size="mini">{tag.name}</Badge>
+              </Col>
+            ))}
           </Row>
         </Card.Content>
         <Divider y={0} />

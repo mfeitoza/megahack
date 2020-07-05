@@ -13,9 +13,6 @@ import { useAuth } from 'src/auth/useAuth'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/users/new" page={NewUserPage} name="newUser" />
-      <Route path="/users/{id}" page={UserPage} name="user" />
-      <Route path="/users" page={UsersPage} name="users" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/signup/{id}" page={SignupCompanyPage} name="newCompany" />
       <Route path="/login" page={LoginPage} name="login" />
@@ -24,22 +21,13 @@ const Routes = () => {
         <Route path="/suppliers" page={SuppliersPage} name="suppliers" />
         <Route path="/requests" page={RequestsPage} name="requests" />
         <Route path="/requests/new" page={NewRequestPage} name="newRequest" />
-        <Route
-          path="/requests/{id}/edit"
-          page={EditRequestPage}
-          name="editRequest"
-        />
         <Route path="/requests/{id}" page={RequestPage} name="request" />
         <Route
           path="/requests/{id}/response"
           page={ResponsePage}
           name="response"
         />
-        <Route path="/users/{id}/edit" page={EditUserPage} name="editUser" />
         <Route path="/tags/new" page={NewTagPage} name="newTag" />
-        <Route path="/tags/{id:Int}/edit" page={EditTagPage} name="editTag" />
-        <Route path="/tags/{id:Int}" page={TagPage} name="tag" />
-        <Route path="/tags" page={TagsPage} name="tags" />
       </Private>
       <Route notfound page={NotFoundPage} />
     </Router>
