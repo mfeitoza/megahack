@@ -21,6 +21,11 @@ const tags = [
 
 const users = [
   {
+    email: 'sir-markus@live.com',
+    name: 'Marcus Feitoza',
+    phone: '2291595548',
+  },
+  {
     email: 'ptejero0@google.cn',
     name: 'Phaedra Tejero',
     phone: '4975453821',
@@ -167,6 +172,9 @@ async function main() {
   //   }
   const createdUsers = []
 
+  await asyncForEach(tags, async (tag) => {
+    await db.tag.create({ data: tag })
+  })
   await asyncForEach(users, async (user) => {
     console.log(`Creating ${user.email}...`)
     createdUsers.push(

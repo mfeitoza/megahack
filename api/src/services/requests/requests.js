@@ -52,8 +52,9 @@ export const Request = {
     db.request.findOne({ where: { id: root.id } }).tags(),
   user: (_obj, { root }) =>
     db.request.findOne({ where: { id: root.id } }).user(),
-  reponsesToRequests: (_obj, { root }) =>
-    db.request.findOne({ where: { id: root.id } }).reponsesToRequests(),
+  reponsesToRequest: (_obj, { root }) => {
+    return db.request.findOne({ where: { id: root.id } }).ReponsesToRequest()
+  },
   responses: (_obj, { root }) => {
     return db.request.findOne({ where: { id: root.id } }).ReponsesToRequest()
   },
@@ -78,4 +79,29 @@ export const allActiveRequest = (_args, { context: { currentUser } }) => {
       },
     },
   })
+}
+
+export const getRequestAndResponses2 = async ({ id }) => {
+  const query = await db.reponsesToRequest.findMany({
+    where: { requestId: id },
+    include: {
+      response: true,
+    },
+  })
+  console.log('&&&&&&&&&&&&&&&&&&&&&&')
+  console.log(query)
+  return query
+}
+
+export const getRequestAndResponses = async ({ id }) => {
+  const query = await db.request.findOne({
+    where: { id },
+    include: {
+      ReponsesToRequest: {
+        include: { response: true },
+      },
+    },
+  })
+  console.log(query)
+  return query
 }

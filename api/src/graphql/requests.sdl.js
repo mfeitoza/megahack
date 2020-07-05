@@ -12,6 +12,7 @@ export const schema = gql`
     user: User!
     userId: String!
     validUntil: DateTime!
+    reponsesToRequest: [ReponsesToRequest]
     responses: [Response]
   }
 
@@ -20,6 +21,7 @@ export const schema = gql`
     request(id: String!): Request!
     findRequestsByUser(createdById: String!): Request!
     allActiveRequest: [Request!]!
+    getRequestAndResponses(id: String!): Request!
   }
 
   input CreateRequestInput {
