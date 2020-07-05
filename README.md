@@ -15,7 +15,12 @@ yarn rw db seed
 
 ### Desenvolvimento local
 
+A autentição é por meio do Firebase Auth. É necessário adicionar as keys em:
+ - /api/src/lib/serviceAccountKey.json (para o backend)
+ - /web/src/firebaseConfig.json (front end)
+
 ```terminal
 yarn rw dev
 ```
+
 O navegador irá abrir automaticamente o `http://localhost:8910` para ver o app. Lambda functions estão no `http://localhost:8911`.
