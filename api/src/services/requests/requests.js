@@ -78,18 +78,6 @@ export const allActiveRequest = (_args, { context: { currentUser } }) => {
   })
 }
 
-export const getRequestAndResponses2 = async ({ id }) => {
-  const query = await db.reponsesToRequest.findMany({
-    where: { requestId: id },
-    include: {
-      response: true,
-    },
-  })
-  console.log('&&&&&&&&&&&&&&&&&&&&&&')
-  console.log(query)
-  return query
-}
-
 export const getRequestAndResponses = async ({ id }) => {
   const query = await db.request.findOne({
     where: { id },

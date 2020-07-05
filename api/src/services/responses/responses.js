@@ -14,24 +14,18 @@ export const createResponse = (
   { requestId, input },
   { context: { currentUser } }
 ) => {
-  console.log('asdffadssadf')
-  console.log(requestId)
   return db.response.create({
     data: {
       ...input,
+      status: 'open',
       company: {
         connect: {
           id: currentUser.company.id,
         },
       },
-      ReponsesToRequest: {
-        create: {
-          status: 'open',
-          request: {
-            connect: {
-              id: requestId,
-            },
-          },
+      request: {
+        connect: {
+          id: requestId,
         },
       },
     },
