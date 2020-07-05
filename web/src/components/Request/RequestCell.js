@@ -1,4 +1,5 @@
 import Request from 'src/components/Request'
+import LoadIndicator from 'src/components/LoadIndicator'
 
 export const QUERY = gql`
   query FIND_REQUEST_BY_ID($id: String!) {
@@ -42,7 +43,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <LoadIndicator />
 
 export const Empty = () => <div>Request not found</div>
 

@@ -1,6 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import Tags from 'src/components/Tags'
-
+import LoadIndicator from 'src/components/LoadIndicator'
 export const QUERY = gql`
   query TAGS {
     tags {
@@ -13,7 +13,7 @@ export const beforeQuery = (props) => {
   return { variables: props, fetchPolicy: 'cache-and-network' }
 }
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <LoadIndicator />
 
 export const Empty = () => {
   return (

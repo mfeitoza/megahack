@@ -60,7 +60,7 @@ export const companyRequests = (_args, { context: { currentUser } }) => {
 export const suppliers = () => {
   return db.company.findMany({
     where: { isSupplier: true },
-    incluse: {
+    include: {
       user: true,
     },
   })

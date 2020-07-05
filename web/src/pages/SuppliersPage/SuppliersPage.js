@@ -1,5 +1,4 @@
 import AppLayout from 'src/layouts/AppLayout'
-import { Link, routes } from '@redwoodjs/router'
 import { Grid } from '@zeit-ui/react'
 
 import SuppliersCell from 'src/components/Company/SuppliersCell'

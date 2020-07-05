@@ -1,5 +1,6 @@
 import Request from 'src/components/Request'
 import { Text, Row, Col, Spacer } from '@zeit-ui/react'
+import LoadIndicator from 'src/components/LoadIndicator'
 
 import Response from 'src/components/Response/Response'
 export const QUERY = gql`
@@ -44,7 +45,7 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <LoadIndicator />
 
 export const Empty = () => <div>Request not found</div>
 
